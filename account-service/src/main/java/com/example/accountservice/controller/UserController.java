@@ -15,8 +15,13 @@ public class UserController {
 
     private final UserService userService;
 
-    @GetMapping
-    public User getUserById() {
-        return userService.getUserById(1L);
+    @GetMapping(value = "/{id}")
+    public User getUserById(@PathVariable Long id) {
+        return userService.getUserById(id);
+    }
+
+    @GetMapping(value = "/address/{id}")
+    public String getAddressById(@PathVariable Long id) {
+        return userService.getUserAddressById(id);
     }
 }
